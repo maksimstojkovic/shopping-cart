@@ -7,6 +7,11 @@ export default defineConfig({
     globals: true,
     environment: "jsdom",
     setupFiles: "./tests/setup.js",
+    watch: true,
+    coverage: {
+      provider: "v8",
+      reporter: ["lcov"],
+    },
   },
   base: "/shopping-cart/",
   server: {
