@@ -1,4 +1,4 @@
-# Shoopping Cart
+# Shopping Cart
 
 A simple store with shopping cart functionality.
 
