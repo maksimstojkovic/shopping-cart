@@ -53,4 +53,15 @@ describe("useObject", () => {
 
     expect(result.current.error).not.toBeNull();
   });
+
+  it("fails with invalid url", async () => {
+    const { result } = renderHook(() =>
+      useObject("https://fakestoreapi.com/error/", "")
+    );
+
+    await waitFor(() => expect(result.current.loading).toBe(false));
+
+    expect(result.current.loading).toBe(false);
+    expect(result.current.error).not.toBeNull();
+  });
 });
