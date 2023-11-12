@@ -6,23 +6,23 @@ import Checkout from "./components/checkout/Checkout";
 import ErrorPage from "./components/shared/ErrorPage";
 
 const Router = () => {
-  const baseUrl = `/${import.meta.env.BASE_URL.replaceAll("/", "")}`;
+  const baseUrl = import.meta.env.BASE_URL;
 
   const router = createBrowserRouter([
     {
-      path: `${baseUrl}`,
+      path: baseUrl,
       element: <App />,
       children: [
         {
-          path: `${baseUrl}/cart`,
+          path: "",
           element: <Store />,
         },
         {
-          path: `${baseUrl}/cart`,
+          path: `cart`,
           element: <Cart />,
         },
         {
-          path: `${baseUrl}/checkout`,
+          path: `checkout`,
           element: <Checkout />,
         },
       ],
@@ -37,20 +37,3 @@ const Router = () => {
 };
 
 export default Router;
-
-// const router = createBrowserRouter([
-//   {
-//     path: "/vite-react-router/",
-//     element: <App />,
-//     children: [
-//       {
-//         path: "/vite-react-router/",
-//         element: <Home />,
-//       },
-//       {
-//         path: "/vite-react-router/contact",
-//         element: <Contact />,
-//       },
-//     ],
-//   },
-// ]);

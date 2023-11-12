@@ -1,0 +1,36 @@
+.quantity-selector {
+  display: flex;
+  gap: 10px;
+
+  button {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    margin: 0;
+    padding: 0;
+
+    background-color: transparent;
+    border: none;
+
+    img {
+      width: 20px;
+      height: 100%;
+    }
+  }
+
+  input {
+    text-align: center;
+    width: 30px;
+  }
+
+  // Disable input adjustment arrows
+  input[type="number"] {
+    -moz-appearance: textfield;
+  }
+
+  input::-webkit-outer-spin-button,
+  input::-webkit-inner-spin-button {
+    -webkit-appearance: none;
+  }
+}
