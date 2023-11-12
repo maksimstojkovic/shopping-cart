@@ -10,9 +10,15 @@ const Store = () => {
         <h2>Welcome to Real Store</h2>
       </header>
 
-      {[...Array(6).keys()].map((index) => (
-        <StoreCard key={index + 1} id={index + 1} cartState={[cart, setCart]} />
-      ))}
+      <div className="store-cards">
+        {[...Array(20).keys()].map((index) => (
+          <StoreCard
+            key={index + 1}
+            id={index + 1}
+            cartState={[cart, setCart]}
+          />
+        ))}
+      </div>
     </>
   );
 };
