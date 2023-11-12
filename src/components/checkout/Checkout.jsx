@@ -1,7 +1,10 @@
 const Checkout = () => {
   return (
     <>
-      <h2>Checkout</h2>
+      <header>
+        <h2>Checkout</h2>
+      </header>
+
       <p>Logic not implemented as part of project</p>
     </>
   );
