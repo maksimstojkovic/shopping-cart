@@ -12,11 +12,13 @@ const App = () => {
         <Outlet context={[cart, setCart]} />
       </div>
       <footer>
-        &copy; Copyright{" "}
-        {new Date().getFullYear() !== 2023
-          ? `2023 – ${new Date().getFullYear()}`
-          : new Date().getFullYear()}
-        , Maksim Stojkovic
+        <p>
+          &copy; Copyright{" "}
+          {new Date().getFullYear() !== 2023
+            ? `2023 – ${new Date().getFullYear()}`
+            : new Date().getFullYear()}
+          , Maksim Stojkovic
+        </p>
       </footer>
     </>
   );
