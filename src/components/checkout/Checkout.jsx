@@ -5,7 +5,7 @@ const Checkout = () => {
         <h2>Checkout</h2>
       </header>
 
-      <p>Logic not implemented as part of project</p>
+      <p>This page is intentionally blank.</p>
     </>
   );
 };
