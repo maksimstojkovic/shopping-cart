@@ -1,7 +1,7 @@
 # Shopping Cart
 
-A simple store with shopping cart functionality.
+A simple store with shopping cart functionality, built using React and React Router.
 
 [View Application](https://maksimstojkovic.github.io/shopping-cart/)
 
-Applies test-driven development and uses React router.
+Also includes React hook unit tests.
