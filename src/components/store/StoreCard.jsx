@@ -6,26 +6,6 @@ import "../../styles/StoreCard.scss";
 const StoreCard = ({ id, cartState }) => {
   const [quantity, setQuantity] = useState(1);
 
-  const addToCart = () => {
-    const setCart = cartState[1];
-
-    setCart((prevCart) => {
-      let newCart = null;
-
-      if (prevCart.filter((item) => item.id === id).length) {
-        newCart = prevCart.map((item) =>
-          item.id === id
-            ? { ...item, quantity: item.quantity + quantity }
-            : item
-        );
-      } else {
-        newCart = [...prevCart, { id: id, quantity: quantity }];
-      }
-
-      return newCart;
-    });
-  };
-
   const { object, error, loading } = useObject(
     "https://fakestoreapi.com/products/",
     id
@@ -39,16 +19,51 @@ const StoreCard = ({ id, cartState }) => {
     return <p>Error!</p>;
   }
 
+  const addToCart = () => {
+    const setCart = cartState[1];
+
+    setCart((prevCart) => {
+      let newCart = null;
+
+      if (prevCart.filter((item) => item.id === id).length) {
+        newCart = prevCart.map((item) =>
+          item.id === id
+            ? { ...item, quantity: item.quantity + quantity }
+            : item
+        );
+      } else {
+        newCart = [
+          ...prevCart,
+          { id: id, quantity: quantity, product: object },
+        ];
+      }
+
+      return newCart;
+    });
+  };
+
   return (
     <div className="store-card">
-      <img src={object.image} alt="Product image" />
-      <h3 className="title">{object.title}</h3>
-      <p className="description">{object.description}</p>
+      <img className="product-image" src={object.image} alt="Product image" />
+      <h3 className="title">
+        {object.title.slice(0, 15) +
+          (object.description.length > 15 ? "..." : "")}
+      </h3>
+      <p className="description">
+        {object.description.slice(0, 70) +
+          (object.description.length > 70 ? "..." : "")}
+      </p>
       <p className="price">${object.price}</p>
-      <QuantitySelector state={[quantity, setQuantity]} minValue={1} />
-      <button type="button" onClick={() => addToCart()}>
-        Add To Cart
-      </button>
+      <div className="quantity">
+        <QuantitySelector state={[quantity, setQuantity]} minValue={1} />
+        <button
+          type="button"
+          className="add-to-cart"
+          onClick={() => addToCart()}
+        >
+          Add To Cart
+        </button>
+      </div>
     </div>
   );
 };

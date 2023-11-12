@@ -1,12 +1,12 @@
-import { useState } from "react";
-import useObject from "../hooks/useObject";
 import QuantitySelector from "../shared/QuantitySelector";
 import "../../styles/StoreCard.scss";
 
 const CartCard = ({ id, cartState }) => {
   const [cart, setCart] = cartState;
 
-  const quantity = cart.filter((item) => item.id === id)[0].quantity;
+  const cartItem = cart.filter((item) => item.id === id)[0];
+  const product = cartItem.product;
+  const quantity = cartItem.quantity;
 
   const setQuantity = (callback) => {
     setCart((prevCart) => {
@@ -30,29 +30,20 @@ const CartCard = ({ id, cartState }) => {
     });
   };
 
-  const { object, error, loading } = useObject(
-    "https://fakestoreapi.com/products/",
-    id
-  );
-
-  if (loading) {
-    return <p>Loading...</p>;
-  }
-
-  if (error) {
-    return <p>Error!</p>;
-  }
-
   return (
-    <div className="store-card">
-      <img src={object.image} alt="Product image" />
-      <h3 className="title">{object.title}</h3>
-      <p className="description">{object.description}</p>
-      <p className="price">{object.price}</p>
-      <QuantitySelector state={[quantity, setQuantity]} minValue={1} />
-      <button type="button" onClick={() => removeItem()}>
-        Remove
-      </button>
+    <div className="cart-card">
+      <img className="product-image" src={product.image} alt="Product image" />
+      <div className="product-details">
+        <h3 className="title">{product.title}</h3>
+        <p className="description">{product.description}</p>
+        <p className="price">${product.price}</p>
+      </div>
+      <div className="quantity">
+        <QuantitySelector state={[quantity, setQuantity]} minValue={1} />
+        <button type="button" onClick={() => removeItem()}>
+          Remove
+        </button>
+      </div>
     </div>
   );
 };
