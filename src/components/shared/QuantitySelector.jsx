@@ -1,12 +1,7 @@
 import { useState } from "react";
 import "../../styles/QuantitySelector.scss";
 
-const QuantitySelector = ({
-  state,
-  initialValue = 1,
-  minValue = 0,
-  maxValue = Infinity,
-}) => {
+const QuantitySelector = ({ state, minValue = 0, maxValue = Infinity }) => {
   const [quantity, setQuantity] = state;
 
   return (
