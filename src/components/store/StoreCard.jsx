@@ -53,7 +53,7 @@ const StoreCard = ({ id, cartState }) => {
         {object.description.slice(0, 70) +
           (object.description.length > 70 ? "..." : "")}
       </p>
-      <p className="price">${object.price}</p>
+      <p className="price">${object.price.toFixed(2)}</p>
       <div className="quantity">
         <QuantitySelector state={[quantity, setQuantity]} minValue={1} />
         <button

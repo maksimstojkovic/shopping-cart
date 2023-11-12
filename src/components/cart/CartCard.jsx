@@ -36,7 +36,7 @@ const CartCard = ({ id, cartState }) => {
       <div className="product-details">
         <h3 className="title">{product.title}</h3>
         <p className="description">{product.description}</p>
-        <p className="price">${product.price}</p>
+        <p className="price">${product.price.toFixed(2)}</p>
       </div>
       <div className="quantity">
         <QuantitySelector state={[quantity, setQuantity]} minValue={1} />
