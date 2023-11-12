@@ -13,7 +13,9 @@ const Cart = () => {
       <header className="split">
         <h2>Shopping Cart</h2>
         <Link to={import.meta.env.BASE_URL + "checkout"}>
-          <button type="button">Checkout - ${cartValue}</button>
+          <button className="view-checkout" type="button">
+            Checkout - ${cartValue.toFixed(2)}
+          </button>
         </Link>
       </header>
 
@@ -24,7 +26,12 @@ const Cart = () => {
           ))}
         </div>
       ) : (
-        <p>No products in cart.</p>
+        <p>
+          No products in cart.{" "}
+          <Link to={import.meta.env.BASE_URL}>
+            Click here to return to the Store page
+          </Link>
+        </p>
       )}
     </>
   );

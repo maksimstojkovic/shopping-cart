@@ -40,7 +40,7 @@ const CartCard = ({ id, cartState }) => {
       </div>
       <div className="quantity">
         <QuantitySelector state={[quantity, setQuantity]} minValue={1} />
-        <button type="button" onClick={() => removeItem()}>
+        <button className="remove" type="button" onClick={() => removeItem()}>
           Remove
         </button>
       </div>

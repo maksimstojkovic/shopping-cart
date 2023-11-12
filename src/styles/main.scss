@@ -178,6 +178,16 @@ nav {
 }
 
 // CART
+.view-checkout {
+  margin: 0;
+  padding: 10px;
+
+  background-color: orange;
+  color: white;
+  font-weight: bold;
+  border: none;
+  border-radius: 100px;
+}
 
 .cart-cards {
   display: flex;
@@ -192,6 +202,30 @@ nav {
 
     .product-image {
       height: 100px;
+    }
+
+    .product-details {
+      display: flex;
+      flex-direction: column;
+      gap: 5px;
+    }
+
+    .quantity {
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      gap: 10px;
+
+      .remove {
+        padding: 5px 10px;
+
+        color: white;
+        background-color: red;
+        font-weight: bold;
+        border: none;
+        border-radius: 100px;
+      }
     }
   }
 }
