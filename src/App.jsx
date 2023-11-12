@@ -8,7 +8,16 @@ const App = () => {
   return (
     <>
       <Navbar cart={cart} />
-      <Outlet context={[cart, setCart]} />
+      <div className="content">
+        <Outlet context={[cart, setCart]} />
+      </div>
+      <footer>
+        &copy; Copyright{" "}
+        {new Date().getFullYear() !== 2023
+          ? `2023 – ${new Date().getFullYear()}`
+          : new Date().getFullYear()}
+        , Maksim Stojkovic
+      </footer>
     </>
   );
 };
