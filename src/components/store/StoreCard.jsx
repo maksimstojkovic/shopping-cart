@@ -44,6 +44,7 @@ const StoreCard = ({ id, cartState }) => {
       <img src={object.image} alt="Product image" />
       <h3 className="title">{object.title}</h3>
       <p className="description">{object.description}</p>
+      <p className="price">${object.price}</p>
       <QuantitySelector state={[quantity, setQuantity]} minValue={1} />
       <button type="button" onClick={() => addToCart()}>
         Add To Cart
