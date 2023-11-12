@@ -1,5 +1,4 @@
 import { Link } from "react-router-dom";
-import PropTypes from "prop-types";
 
 const Navbar = ({ cart = [] }) => {
   const cartSize = cart.reduce((sum, item) => sum + item.quantity, 0);
