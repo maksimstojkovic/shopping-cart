@@ -7,16 +7,14 @@ const Navbar = ({ cart = [] }) => {
     <nav>
       <div className="logo">
         <Link to={import.meta.env.BASE_URL} aria-label="Home">
-          <h2>Real Store</h2>
+          <h1>Real Store</h1>
         </Link>
       </div>
 
       <div className="cart">
         <Link to={import.meta.env.BASE_URL + "cart"} aria-label="Cart">
-          <button type="button">
-            <img src="cart-outline.svg" alt="Shopping cart icon" />
-            <div>Cart - {cartSize}</div>
-          </button>
+          <img src="cart-outline.svg" alt="Shopping cart icon" />
+          <div className="count">Cart - {cartSize}</div>
         </Link>
       </div>
     </nav>
